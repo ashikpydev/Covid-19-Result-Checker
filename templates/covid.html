@@ -1,0 +1,67 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <title>Document</title>
+</head>
+<style type="text/css">
+
+    .conteiner{
+        margin-top: 10px;
+        margin-bottom: 10px;
+    }
+
+
+</style>
+<body style="background-color: black;">
+   <div class="conteiner">
+       <div class="row">
+           <div class="col-md-12">
+            <h1 style="color: white;text-align: center;"><span style="color: red;">COVID-19</span> WORLDWIDE DATA</h1>
+            <form method="POST" style="margin-top: 50px;" class="d-flex justify-content-center align-items-center">
+                {% csrf_token %}
+            <select class="form-control" style="width: 200px;"  name="selectedcountry">{% for country in mylist %}
+                <option>{{ country }}</option>
+                {% endfor %}
+            </select>
+            <BUtton type="submit" class="btn btn-danger">submit</BUtton>
+            </form>
+            <h1 style="margin: top 15px;color: white; text-align: center">{{ selectedcountry }}</h1>
+            <div class="d-flex justify-content-center align-items-center">
+                <div id="left" class="conteiner" style="border-radius: 10px; background-color: orange ;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color: white;">{{total}}</h1>
+                    <p style="text-align: center;">Total Cases</p>
+                </div>
+                <div class="conteiner" style="border-radius: 10px; background-color:green ;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color: white;">{{recovered}}</h1>
+                    <p style="text-align: center;">Recovered</p>
+                </div>
+                <div class="conteiner" style="border-radius: 10px; background-color:yellow;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color:black;">{{active}}</h1>
+                    <p style="text-align: center;">Active</p>
+                </div>
+            </div>
+        
+            <div class="d-flex justify-content-center align-items-center">
+                <div class="conteiner" style="border-radius: 10px;background-color: skyblue;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color: white;">{{new}}</h1>
+                    <p style="text-align: center;">Active</p>
+                </div>
+                <div class="conteiner" style="border-radius: 10px;background-color:red ;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color: white;">{{deaths}}</h1>
+                    <p style="text-align: center;">Deaths</p>
+                </div>
+                <div class="conteiner" style="border-radius: 10px; background-color:salmon ;height: 100px;width: 200px;">
+                    <h1 style="text-align: center;color: white;">{{critical}}</h1>
+                    <p style="text-align: center;">critical</p>
+                </div>
+            </div>
+            <p style="text-align: center;color: gray;">Developed by <span style="color: honeydew;">ASHIQUR RAHMAN RONY</span></p>
+           </div>
+       </div>
+   </div>
+</body>
+</html>
